@@ -28,6 +28,7 @@
       :clipped-left="clipped"
       fixed
       app
+      style="background-color: rgba(238,232,205,1); color: white;"
     >
       <v-toolbar-side-icon @click="drawer = !drawer" />
       <v-btn
@@ -51,6 +52,7 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <v-btn
+        class="hidden-md-and-up"
         icon
         @click.stop="rightDrawer = !rightDrawer"
       >
@@ -58,7 +60,7 @@
       </v-btn>
     </v-toolbar>
     <v-content>
-      <v-container>
+      <v-container style="padding: 0px; max-width: 100%;">
         <nuxt />
       </v-container>
     </v-content>
@@ -77,12 +79,15 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-footer
+    <!--
+       <v-footer
       :fixed="fixed"
       app
     >
       <span>&copy; 2019</span>
     </v-footer>
+    -->
+   
   </v-app>
 </template>
 
@@ -149,3 +154,14 @@ export default {
   }
 }
 </script>
+
+<style >
+.app {
+  background-color: red !important;
+  background: red !important;
+}
+
+.application.theme .v-list, .application.theme .v-navigation-drawer { 
+    background: #570505 !important; 
+  }
+</style>

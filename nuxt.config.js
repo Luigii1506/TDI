@@ -40,7 +40,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/vuetify'
+    '@/plugins/vuetify',
+    '@/plugins/vue2-google-maps'
   ],
 
   /*
@@ -50,7 +51,26 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    ['nuxt-i18n', {
+      locales: [
+        {
+          name: 'Italiano',
+          code: 'it',
+          iso: 'it-IT',
+          file: 'it-IT.js'
+        },
+        {
+          name: 'English',
+          code: 'en',
+          iso: 'en-US',
+          file: 'en-US.js'
+        },
+      ],
+      langDir: 'lang/',
+      defaultLocale: 'it',
+    }]
   ],
+
   /*
   ** Axios module configuration
   */
@@ -64,7 +84,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    transpile: ['vuetify/lib'],
+    transpile: ['vuetify/lib', /^vue2-google-maps($|\/)/],
     plugins: [new VuetifyLoaderPlugin()],
     loaders: {
       stylus: {
@@ -75,6 +95,7 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+     
     }
   },
   env: {
@@ -84,5 +105,6 @@ module.exports = {
   transition: {
     name: 'fade',
     mode: 'out-in'
-  }
+  },
+  vendor:["vue2-google-maps"]
 }
