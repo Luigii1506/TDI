@@ -11,6 +11,7 @@
     >
      
      <p>Estas en Home</p>
+      <h1>{{ $t('hello') }}</h1>
      <AdminPostForm :posts="loadedPosts"/>
      
     </v-flex>
