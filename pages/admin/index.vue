@@ -1,11 +1,11 @@
 <template>
     <div>
-        <h1>Esta es la seccion de Admin</h1>
+         
         <button @click="$router.push('/admin/new-post')">Create post</button>
-        <PostList isAdmin/>
-        <PostList
+         <PostList
         isAdmin
         :posts="loadedPosts" />
+       
     </div>
 </template>
 
