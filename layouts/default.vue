@@ -2,9 +2,7 @@
   <v-app>
     <v-navigation-drawer
       v-model="drawer"
-      :mini-variant="miniVariant"
       :clipped="clipped"
-      fixed
       app
     >
       <v-list>
@@ -26,29 +24,10 @@
     </v-navigation-drawer>
     <v-toolbar
       :clipped-left="clipped"
-      fixed
       app
-      style="background-color: rgba(238,232,205,1); color: white;"
+      style="background-color: red; color: white;"
     >
       <v-toolbar-side-icon @click="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>{{ `chevron_${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>remove</v-icon>
-      </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
       <v-btn
@@ -59,34 +38,23 @@
         <v-icon>menu</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-content>
+    <v-content class="v-content">
       <v-container style="padding: 0px; max-width: 100%;">
         <nuxt />
       </v-container>
     </v-content>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-tile @click.native="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <!--
-       <v-footer
-      :fixed="fixed"
+     <v-footer
+      absolute
       app
-    >
-      <span>&copy; 2019</span>
+      style="height: 120px;"
+      >
+      <div class="center-h">
+        <img width="100" src="~/assets/Cluster.png" />
+        <img width="100" src="~/assets/Guide.png" class="center-v image-padding"/>
+        <img width="100" src="~/assets/TDI.png" class="center-v"/>
+      </div>
     </v-footer>
-    -->
+  
    
   </v-app>
 </template>
@@ -95,9 +63,9 @@
 export default {
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
+      clipped: true,
+      drawer: true,
+      fixed: true,
       items: [
         {
           icon: 'apps',
@@ -146,10 +114,9 @@ export default {
         }
         
       ],
-      miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'TDI'
     }
   }
 }
@@ -164,4 +131,25 @@ export default {
 .application.theme .v-list, .application.theme .v-navigation-drawer { 
     background: #570505 !important; 
   }
+
+
+.center-h {
+  margin: auto;
+  display: block;
+}
+
+.center-v {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.v-content {
+  padding-bottom: 120px !important;
+}
+
+.image-padding {
+  margin-left: 30px;
+  margin-right: 30px;
+}
 </style>

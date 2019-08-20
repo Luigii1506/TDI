@@ -1,13 +1,18 @@
 <template>
   <div class="admin-auth-page">
-    <div class="auth-container">
-      <form @submit.prevent="onSubmit">
-        <input type="email" v-model="email" placeholder="email" />
-        <input type="password" v-model="password" placeholder="password" />
-        <button type="submit">{{ isLogin ? 'Login' : 'Sign Up' }}</button>
-        <button type="button" style="margin-left: 10px" @click="isLogin = !isLogin">Switch to {{ isLogin ? 'Signup' : 'Login' }}</button>
-      </form>
-    </div>
+    <v-card class="mx-auto" style="max-width: 500px;">
+      <v-form @submit.prevent="onSubmit" class="pa-4 pt-6" id="v-form">
+        <v-text-field type="email" v-model="email" label="Email address" ></v-text-field>
+        <v-text-field type="password" v-model="password" label="Password"></v-text-field>
+      
+      </v-form>
+   
+   <v-divider></v-divider>
+    <v-card-actions>
+      <v-btn type="submit" form="v-form" color="green" class="white--text">{{ isLogin ? 'Login' : 'Sign Up' }}</v-btn>
+        <v-btn type="button" color="indigo" class="white--text" style="margin-left: 10px" @click="isLogin = !isLogin">Switch to {{ isLogin ? 'Signup' : 'Login' }}</v-btn>
+       </v-card-actions>
+    </v-card>
   </div>
 </template>
 

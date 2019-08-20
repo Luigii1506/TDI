@@ -33,7 +33,7 @@
           },
           {
             position: {
-              lng: 10.1,
+              lng: 40.1,
               lat: 10
             }
           }
