@@ -8,11 +8,9 @@
                     </v-flex>
                     <v-flex xs12>
                         <v-text-field v-model="editedPost.previewText" label="Text" required></v-text-field>
-
                     </v-flex>
                     <v-flex xs12>
                         <v-text-field v-model="editedPost.thumbnail" label="Imagen" required></v-text-field>
-
                     </v-flex>
                     <v-flex xs6>
                         <v-btn color="error" dark large @click="onCancel">Cancel</v-btn>
@@ -39,7 +37,8 @@ export default {
             },
             rules: [
                 v => !!v || 'Name is required' 
-            ]
+            ],
+            valid: false,
         }
     },
     methods: {
