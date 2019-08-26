@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <!--
     <div class="single-post-page">
       <section class="post">
         <h1 class="post-title">{{ loadedPost.title }}</h1>
@@ -14,7 +15,23 @@
         ></v-carousel-item>
       </v-carousel>
       <p class="p-info">{{ loadedPost.previewText }}</p>
-     <v-btn>CHINGA TU MADRE</v-btn>
+    </div>
+    -->
+    <div class="title-wrapper"> 
+      <p class="title">{{postItems[id].title}}</p>
+      <p class="subtitle">{{postItems[id].subtitle}}</p>
+    </div>
+   <v-carousel hide-delimiters>
+      <v-carousel-item
+        v-for="(item,i) in postItems[id].items"
+        :key="i"
+        :src="item.src"
+      ></v-carousel-item>
+    </v-carousel>
+    <div class="info-wrapper">
+      <p class="info-text">
+        Donec a sollicitudin libero, pharetra laoreet arcu. Proin et enim augue. Ut nisi arcu, condimentum sed ligula quis, feugiat sagittis nisi. Nam eget imperdiet turpis, sit amet mollis lacus. Curabitur blandit purus velit, non fermentum ante lobortis eget. Nullam et sapien sit amet tortor aliquet venenatis quis sed est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. In consectetur ultrices eleifend. Donec sapien tortor, pellentesque eu velit ultrices, porta tincidunt sem. Praesent facilisis, libero a gravida laoreet, dolor nibh porttitor diam, a euismod est quam sit amet felis.
+      </p>
     </div>
   </v-container>
 </template>
@@ -24,37 +41,300 @@
 export default {
     data () {
       return {
-        items: [
+        postItems: [
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            title: 'PEDWEST',
+            subtitle: "(San Diego)",
+            items: [
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+              },
+            ],
+            info: ""
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+            title: 'MERCADO DE ARTESANIAS',
+            subtitle: "Artisan's Market",
+            items: [
+              {
+                src: 'https://s3-media4.fl.yelpcdn.com/bphoto/xCrfoRYxba4t2bYj0Yx3tA/o.jpg',
+              },
+              {
+                src: 'https://s3-media2.fl.yelpcdn.com/bphoto/Qu7M8vB3Rw3-lUTT1gj_Kw/o.jpg',
+              },
+              {
+                src: 'https://s3-media1.fl.yelpcdn.com/bphoto/U08angocbH44-OVqAGNUKQ/o.jpg',
+              },
+              {
+                src: 'https://media-cdn.tripadvisor.com/media/photo-s/06/0c/b6/c5/artist-market.jpg',
+              },
+            ],
+            info: ""
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+            title: 'MUSEO DE CERA',
+            subtitle: "Wax Museum",
+            items: [
+              {
+                src: 'http://2.bp.blogspot.com/_ZB3ch19_aZs/R-AogkutC-I/AAAAAAAAACg/xqtzpV1AIZc/s320/IMG_0758.JPG',
+              },
+              {
+                src: 'https://tijuana.travel/wp-content/uploads/2019/06/Museo-de-Cera-Chavo.jpg',
+              },
+              {
+                src: 'https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/s6ed960841df41b83/image/i73630f3e282f021d/version/1533207442/image.jpg',
+              },
+              {
+                src: 'https://media-cdn.tripadvisor.com/media/photo-s/0f/db/a3/af/lugar-iconografico-de.jpg',
+              },
+            ],
+            info: ""
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            title: 'MERCADO DE FLORES',
+            subtitle: "Flower Market",
+            items: [
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+              },
+            ],
+            info: ""
           },
-        ],
+          {
+            title: 'PLAZA SANTA CECILIA',
+            subtitle: "Old Town Tijuana",
+            items: [
+              {
+                src: 'http://observaturbc.org/sites/default/files/images/atractivos_turisticos_node/2014/418/principal.jpg',
+              },
+              {
+                src: 'https://live.staticflickr.com/5493/31330505722_ef7e4b84c1_b.jpg',
+              },
+              {
+                src: 'https://i.pinimg.com/originals/ae/cd/de/aecdde7eaccb5c459b2c0fc6ba56b181.jpg',
+              },
+              {
+                src: 'https://i.pinimg.com/originals/dc/b5/1f/dcb51f054388a843da5de5a7afc1b981.jpg',
+              },
+            ],
+            info: ""
+          },
+          {
+            title: 'INSTITUTO MUNICIPAL DE ARTE Y CULTURA',
+            subtitle: "Arts & Culture Institute",
+            items: [
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+              },
+            ],
+            info: ""
+          },
+          {
+            title: 'MERCADO TRADICIONES MEXICANAS "EL POP"',
+            subtitle: "Crafts & Farmers Market",
+            items: [
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+              },
+            ],
+            info: ""
+          },
+          {
+            title: 'CATEDRAL',
+            subtitle: "",
+            items: [
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+              },
+            ],
+            info: ""
+          },
+          {
+            title: 'MERCADO MUNICIPAL',
+            subtitle: "Traditional Mexican Food Market",
+            items: [
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+              },
+            ],
+            info: ""
+          },
+          {
+            title: 'JAI-ALAI',
+            subtitle: "",
+            items: [
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+              },
+            ],
+            info: ""
+          },
+          {
+            title: 'PARQUE "LA OCHO"',
+            subtitle: "Park",
+            items: [
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+              },
+            ],
+            info: ""
+          },
+          {
+            title: 'AVE. REVOLUCION',
+            subtitle: "Revolution Ave.",
+            items: [
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+              },
+            ],
+            info: ""
+          },
+          {
+            title: 'CALLE 6A',
+            subtitle: "6th Street / Nigthlife Corridor",
+            items: [
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+              },
+              {
+                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+              },
+            ],
+            info: ""
+          }
+        ]
       }
     },
   asyncData(context) {
-    return context.app.$axios.$get('/posts/' + context.params.id + '.json')
-      .then(data => {
-        console.log(data)
-        return {
-          loadedPost: data
-        }
-      })
-      .catch(e => context.error(e))
+    return {
+      id: context.params.id
+    }
   }
 };
 </script>
 
 
 <style scoped>
+
+.info-wrapper {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.info-text {
+  color: white;
+  font-size: 16pt !important;
+  text-align: justify;
+}
+
+.title-wrapper {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.title {
+  color: white;
+  font-size: 20pt !important;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.subtitle {
+  text-align: center;
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-size: 16pt !important;
+}
 
 .mapa {
   background-color: red;

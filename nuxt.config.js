@@ -10,7 +10,7 @@ module.exports = {
     title: pkg.name,
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1,  maximum-scale=1.0, user-scalable=no' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
@@ -52,6 +52,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     ['nuxt-i18n', {
+      lazy:true,
       locales: [
         {
           name: 'Italiano',
@@ -66,6 +67,7 @@ module.exports = {
           file: 'en-US.js'
         },
       ],
+      loadLanguagesAsync: true,
       langDir: 'lang/',
       defaultLocale: 'it',
     }]

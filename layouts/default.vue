@@ -1,5 +1,7 @@
 <template>
   <v-app>
+
+    <!--
     <v-navigation-drawer
       v-model="drawer"
       :clipped="clipped"
@@ -22,6 +24,9 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
+    -->
+
+    <!--
     <v-toolbar
       :clipped-left="clipped"
       app
@@ -38,11 +43,44 @@
         <v-icon>menu</v-icon>
       </v-btn>
     </v-toolbar>
+    --> 
+
     <v-content class="v-content">
       <v-container style="padding: 0px; max-width: 100%;">
         <nuxt />
       </v-container>
     </v-content>
+    
+    <v-bottom-nav
+      :active.sync="bottomNav"
+      :value="true"
+      fixed
+      color="white"
+    >
+      <v-btn
+        color="teal"
+        flat
+        value="recent"
+        to="/" 
+        nuxt
+      >
+        <span>Recent</span>
+        <v-icon>history</v-icon>
+      </v-btn>
+
+      <v-btn
+        color="teal"
+        flat
+        value="favorites"
+        to="/posts" 
+        nuxt
+      >
+        <span>Favorites</span>
+        <v-icon>place</v-icon>
+      </v-btn>
+    </v-bottom-nav>
+
+    <!--
      <v-footer
       absolute
       app
@@ -54,7 +92,7 @@
         <img width="100" src="~/assets/TDI.png" class="center-v"/>
       </div>
     </v-footer>
-  
+    -->
    
   </v-app>
 </template>
@@ -66,6 +104,7 @@ export default {
       clipped: true,
       drawer: true,
       fixed: true,
+      bottomNav: 'recent',
       items: [
         {
           icon: 'apps',
@@ -145,7 +184,8 @@ export default {
 }
 
 .v-content {
-  padding-bottom: 120px !important;
+  padding-bottom: 56px !important;
+  background-image: linear-gradient(to bottom, #004d8a, #005a90, #006693, #007193, #007c93);
 }
 
 .image-padding {

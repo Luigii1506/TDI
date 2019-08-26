@@ -1,14 +1,14 @@
 <template>
   <v-layout row wrap>
+    <!--
     <v-flex xs12 md8>
       <GmapMap class="map" :center="maplocation" :zoom="7" map-type-id="terrain">
         <GmapMarker :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
       </GmapMap>
     </v-flex>
-    <v-flex xs12 md4 class="list-places">
-      <div class="posts-page">
+    -->
+    <v-flex xs12>
         <PostList :posts="loadedPosts" />
-      </div>
     </v-flex>
   </v-layout>
   
