@@ -30,8 +30,8 @@
               v-else
               :key="item.title"
               avatar
-              :to="item.url" 
-              nuxt   
+              @click="toDetail(item.id)"
+              nuxt
             >
               
               <v-list-tile-avatar>
@@ -181,6 +181,12 @@ export default {
     posts: {
       type: Array,
       required: false
+    }
+  },
+  methods: {
+    toDetail(url) {
+      console.log('prueba', url)
+      this.$router.push(this.localePath({ name: "posts-id", params: { id: url } }));
     }
   }
 }

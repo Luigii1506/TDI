@@ -1,5 +1,5 @@
 export default {
-    hello: 'Ciao a tutti',
+    hello: 'Hola en chino',
     pages: {
       home: 'Pagina iniziale',
       contacts: 'Contatti'

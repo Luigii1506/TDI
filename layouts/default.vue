@@ -61,7 +61,7 @@
         color="teal"
         flat
         value="recent"
-        to="/" 
+        @click="toHome"
         nuxt
       >
         <span>Recent</span>
@@ -72,7 +72,7 @@
         color="teal"
         flat
         value="favorites"
-        to="/posts" 
+        @click="toPosts"
         nuxt
       >
         <span>Favorites</span>
@@ -156,6 +156,14 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'TDI'
+    }
+  },
+  methods: {
+    toPosts() {
+      this.$router.push(this.localePath({ name: "posts" }));
+    },
+    toHome() {
+      this.$router.push(this.localePath({ name: "home" }));
     }
   }
 }

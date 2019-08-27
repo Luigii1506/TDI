@@ -1,5 +1,5 @@
 export default {
-    hello: 'Hello World',
+    hello: 'Hello',
     pages: {
       home: 'Home',
       contacts: 'Contacts'

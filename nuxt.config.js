@@ -55,10 +55,10 @@ module.exports = {
       lazy:true,
       locales: [
         {
-          name: 'Italiano',
-          code: 'it',
-          iso: 'it-IT',
-          file: 'it-IT.js'
+          name: 'Espanol',
+          code: 'es',
+          iso: 'es-MX',
+          file: 'es-MX.js'
         },
         {
           name: 'English',
@@ -66,10 +66,16 @@ module.exports = {
           iso: 'en-US',
           file: 'en-US.js'
         },
+        {
+          name: 'Chino',
+          code: 'ch',
+          iso: 'ch-CH',
+          file: 'ch-CH.js'
+        },
       ],
       loadLanguagesAsync: true,
       langDir: 'lang/',
-      defaultLocale: 'it',
+      defaultLocale: 'en',
     }]
   ],
 
