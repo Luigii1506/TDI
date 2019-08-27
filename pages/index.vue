@@ -1,81 +1,20 @@
 <template>
-  <v-container class="container-map">
-    <div class="img-wrapper">
-        <img width="200" src="~/assets/TDI.png" class="center-h center-v"/>
-    </div>
-    <div class="map-wrapper">
-      <GmapMap 
-      class="map mapStyle" 
-      :center="maplocation" 
-      :zoom="15" 
-      :options="{
-        fullscreenControl: false,
-        draggable: false,
-        scaleControl: false,
-        streetViewControl: false,
-        disableDefaultUi: true,
-        zoomControl: false,
-        mapTypeControl: false,
-        mapTypeId: 'roadmap',
-        styles: styleMaps,
-        scrollwheel: false
-      }"
-      map-type-id="terrain">
-      <GmapMarker :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
-    </GmapMap>
-      </div>
+  <v-container class="container-map"> 
+    <v-dialog
+      v-model="dialog"
+      max-width="290"
+      persistent
+    >
+      <v-card>
+        <v-card-title class="headline">Selecciona un idioma</v-card-title>
+        <v-card-text>
+          <img width="75" src="~/assets/flag-america.png" @click="americaFlag" nuxt>
+          <img width="75" src="~/assets/china.png" @click="chinaFlag" nuxt/>
+          <img width="75" src="~/assets/mexico.png" @click="mexicoFlag" nuxt/>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </v-container>
-
-  <!--
-
-     <v-layout row wrap>
-      <v-flex sm12 md4 lg4>
-          <img width="200" src="~/assets/Cluster.png" class="center-v center-h "/>
-      </v-flex>
-      <v-flex sm12 md4 lg4>
-          <img width="200" src="~/assets/Guide.png" class="center-v center-h "/>
-      </v-flex>
-      <v-flex sm12 md4 lg4>
-          <img width="200" src="~/assets/TDI.png" class="center-v center-h "/>
-      </v-flex>
-    </v-layout>
-    <v-carousel hide-delimiters>
-      <v-carousel-item
-        v-for="(item,i) in items"
-        :key="i"
-        :src="item.src"
-      ></v-carousel-item>
-    </v-carousel>
-    <p class="title-text">WELCOME TO TIJUANA</p>
-    <p class="body-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum leo odio, quis egestas velit tempus quis. Quisque scelerisque iaculis eros nec placerat. Mauris eu ex in tellus accumsan tristique et vel urna. Nullam semper justo nibh, ac consequat velit volutpat sit amet. Maecenas laoreet tellus non est malesuada feugiat. Mauris sed varius lacus, quis tempus erat. Cras odio neque, convallis sit amet lectus quis, tincidunt mattis enim. Aenean facilisis lobortis dolor quis molestie. Quisque porta pulvinar pulvinar. Cras vel malesuada felis. Morbi ultrices consectetur ante, vel mattis leo auctor vel. Nam sit amet vestibulum lorem. Sed eleifend maximus urna, sit amet mollis enim tincidunt sed.
-    </p>
-    <v-layout row wrap class="gallery-row">
-      <v-flex sm6 md4 lg4>
-          <div class="test-image">
-            <div class="black-item">
-              <p class="text-image">Bares</p>
-            </div>
-          </div>
-      </v-flex>
-      <v-flex xs12 sm6 md4 lg4>
-          <img width="250" height="200" src="https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/hoteles-en-tijuana-eventos-culturales-cecut.jpg" class="center-v center-h "/>
-      </v-flex>
-      <v-flex xs12 sm6 md4 lg4>
-          <img width="250" height="200" src="https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/hoteles-en-tijuana-eventos-culturales-cecut.jpg" class="center-v center-h "/>
-      </v-flex>
-      <v-flex xs12 sm6 md4 lg4 class="gallery-col">
-          <img width="250" height="200" src="https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/hoteles-en-tijuana-eventos-culturales-cecut.jpg" class="center-v center-h "/>
-      </v-flex>
-      <v-flex xs12 sm6 md4 lg4 class="gallery-col">
-          <img width="250" height="200" src="https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/hoteles-en-tijuana-eventos-culturales-cecut.jpg" class="center-v center-h "/>
-      </v-flex>
-      <v-flex xs12 sm6 md4 lg4 class="gallery-col">
-          <img width="250" height="200" src="https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/hoteles-en-tijuana-eventos-culturales-cecut.jpg" class="center-v center-h "/>
-      </v-flex>
-    </v-layout>
-
-    -->
 </template>
 
 <script>
@@ -84,6 +23,7 @@ import AdminPostForm from '@/components/Admin/AdminPostForm.vue'
 export default {
    data () {
       return {
+        dialog: true,
         items: [
           {
             src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
@@ -193,8 +133,25 @@ export default {
       return this.$store.getters.loadedPosts
     }
   },
-  mounted() {
-    console.log('prueba');
+  methods: {
+    americaFlag() {
+      this.dialog = false;
+      this.$router.push(this.localePath('home', 'en'));
+    },
+    mexicoFlag() {
+      this.dialog = false;
+      this.$router.push(this.localePath('home', 'es'));
+    },
+    chinaFlag() {
+      this.dialog = false;
+      this.$router.push(this.localePath('home', 'ch'));
+    }
+  },
+  created() {
+    console.log('created');
+  },
+  updated() {
+    this.dialog = true;
   }
 }
 </script>
