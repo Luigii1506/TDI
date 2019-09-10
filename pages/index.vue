@@ -1,22 +1,23 @@
 <template>
-  <v-container class="container-map"> 
-    <v-layout row wrap>
-      <v-flex xs12 sm4>
+  <v-container class="container-map">
+    <img src="~assets/plazaSantaCeciloa.jpg" class="img"> 
+    <v-layout row wrap class="layout-relative" style="margin-top: 20px;">
+      <v-flex xs12>
         <img src="~/assets/TDI-texto.png" class="tdi" >
       </v-flex>
     </v-layout>
-    <v-layout row wrap>
+    <v-layout row wrap class="layout-relative" style="margin-top: 20px;">
       <v-flex xs12 sm4>
         <img src="~/assets/flag-america.png" @click="americaFlag" nuxt class="flags">
         <p class="welcome-text">Welcome</p>
       </v-flex>
       <v-flex xs12 sm4>
         <img src="~/assets/china.png" @click="chinaFlag" nuxt class="flags"/>
-        <p class="welcome-text">Welcome</p>
+        <p class="welcome-text">欢迎</p>
       </v-flex>
-      <v-flex xs12 sm4>
+      <v-flex xs12 sm4 style="padding-bottom: 20px;">
         <img src="~/assets/mexico.png" @click="mexicoFlag" nuxt class="flags"/>
-        <p class="welcome-text">Welcome</p>
+        <p class="welcome-text">Bienvenido</p>
       </v-flex>
     </v-layout>
   </v-container>
@@ -163,6 +164,24 @@ export default {
 </script>
 
 <style scoped>
+
+.layout-relative {
+  position: relative;
+  z-index: 9999;
+}
+
+ .img {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    padding-top: 0px;
+    z-index: 1;
+    opacity: 0.3;
+    top: 0px;
+  }
 
 .tdi {
   width: 250px;
