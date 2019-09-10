@@ -30,7 +30,7 @@
     </v-carousel>
     <div class="info-wrapper">
       <p class="info-text">
-        Donec a sollicitudin libero, pharetra laoreet arcu. Proin et enim augue. Ut nisi arcu, condimentum sed ligula quis, feugiat sagittis nisi. Nam eget imperdiet turpis, sit amet mollis lacus. Curabitur blandit purus velit, non fermentum ante lobortis eget. Nullam et sapien sit amet tortor aliquet venenatis quis sed est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. In consectetur ultrices eleifend. Donec sapien tortor, pellentesque eu velit ultrices, porta tincidunt sem. Praesent facilisis, libero a gravida laoreet, dolor nibh porttitor diam, a euismod est quam sit amet felis.
+        {{ $t('lugaresInfo[' + id + ']') }}
       </p>
     </div>
   </v-container>

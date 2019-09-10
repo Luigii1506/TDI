@@ -1,19 +1,24 @@
 <template>
   <v-container class="container-map"> 
-    <v-dialog
-      v-model="dialog"
-      max-width="290"
-      persistent
-    >
-      <v-card>
-        <v-card-title class="headline">Selecciona un idioma</v-card-title>
-        <v-card-text>
-          <img width="75" src="~/assets/flag-america.png" @click="americaFlag" nuxt>
-          <img width="75" src="~/assets/china.png" @click="chinaFlag" nuxt/>
-          <img width="75" src="~/assets/mexico.png" @click="mexicoFlag" nuxt/>
-        </v-card-text>
-      </v-card>
-    </v-dialog>
+    <v-layout row wrap>
+      <v-flex xs12 sm4>
+        <img src="~/assets/TDI-texto.png" class="tdi" >
+      </v-flex>
+    </v-layout>
+    <v-layout row wrap>
+      <v-flex xs12 sm4>
+        <img src="~/assets/flag-america.png" @click="americaFlag" nuxt class="flags">
+        <p class="welcome-text">Welcome</p>
+      </v-flex>
+      <v-flex xs12 sm4>
+        <img src="~/assets/china.png" @click="chinaFlag" nuxt class="flags"/>
+        <p class="welcome-text">Welcome</p>
+      </v-flex>
+      <v-flex xs12 sm4>
+        <img src="~/assets/mexico.png" @click="mexicoFlag" nuxt class="flags"/>
+        <p class="welcome-text">Welcome</p>
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
@@ -21,6 +26,7 @@
 import AdminPostForm from '@/components/Admin/AdminPostForm.vue'
 
 export default {
+   layout: 'home',
    data () {
       return {
         dialog: true,
@@ -156,7 +162,28 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+.tdi {
+  width: 250px;
+  margin: auto;
+  display: block;
+}
+
+.welcome-text {
+  text-align: center;
+  color: white;
+  font-size: 28pt;
+  margin:0;
+  font-weight: 600;
+}
+
+.flags {
+  margin: auto;
+  display: block;
+  width: 100px;
+  cursor: pointer;
+}
 
 .img-wrapper {
   height: 35%;

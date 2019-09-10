@@ -2,9 +2,11 @@
   <v-container class="container-map">
     <div class="img-wrapper">
         <img width="200" src="~/assets/TDI.png" class="center-h center-v"/>
-        <nuxt-link :to="switchLocalePath('it')">Italian</nuxt-link>
-        <nuxt-link :to="switchLocalePath('en')">English</nuxt-link>
-        <h1>{{ $t('hello') }}</h1>
+    </div>
+    <div class="flags-wrapper">
+        <img src="~/assets/flag-america.png" @click="americaFlag" nuxt class="flags">
+        <img src="~/assets/china.png" @click="chinaFlag" nuxt class="flags"/>
+        <img src="~/assets/mexico.png" @click="mexicoFlag" nuxt class="flags"/>
     </div>
     <div class="map-wrapper">
       <GmapMap 
@@ -150,6 +152,18 @@ export default {
     test() {
       this.dialog = false;
       this.$router.push(this.localePath('posts', 'it'));
+    },
+      americaFlag() {
+      this.dialog = false;
+      this.$router.push(this.localePath('home', 'en'));
+    },
+    mexicoFlag() {
+      this.dialog = false;
+      this.$router.push(this.localePath('home', 'es'));
+    },
+    chinaFlag() {
+      this.dialog = false;
+      this.$router.push(this.localePath('home', 'ch'));
     }
   },
   created() {
@@ -161,7 +175,18 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+.flags-wrapper {
+  width: max-content;
+  margin-left: auto;
+}
+
+.flags {
+  width: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
 
 .img-wrapper {
   height: 35%;
@@ -174,6 +199,7 @@ export default {
 
 .container-map {
   height: calc(100vh - 56px);
+  overflow: auto;
 }
 
 .mapStyle {
