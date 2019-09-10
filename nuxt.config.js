@@ -23,6 +23,12 @@ module.exports = {
     ]
   },
 
+  pwa: {
+    workbox: {
+      offline: true,
+    }
+  },
+
   /*
   ** Customize the progress-bar color
   */
@@ -114,5 +120,6 @@ module.exports = {
     name: 'fade',
     mode: 'out-in'
   },
-  vendor:["vue2-google-maps"]
+  vendor:["vue2-google-maps"],
+
 }
