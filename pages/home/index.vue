@@ -1,8 +1,40 @@
 <template>
   <v-container class="container-map">
+    <!--
     <div class="img-wrapper">
         <img width="200" src="~/assets/TDI.png" class="center-h center-v"/>
     </div>
+    -->
+    <v-container grid-list-sm fluid class="img-wrapper-carrusel">
+      <v-layout row wrap>
+        <v-flex
+          v-for="n in items"
+          :key="n.key"
+          xs6
+          d-flex
+        >
+          <v-card flat tile class="d-flex">
+            <v-img
+              :src="n.src"
+              aspect-ratio="1"
+              class="grey lighten-2"
+            >
+              <template v-slot:placeholder>
+                <v-layout
+                  fill-height
+                  align-center
+                  justify-center
+                  ma-0
+                >
+                  <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                </v-layout>
+              </template>
+            </v-img>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
+    <img src="~assets/plazaSantaCeciloa.jpg" class="img"> 
     <div class="flags-wrapper">
         <img src="~/assets/flag-america.png" @click="americaFlag" nuxt class="flags">
         <img src="~/assets/china.png" @click="chinaFlag" nuxt class="flags"/>
@@ -41,16 +73,20 @@ export default {
         dialog: true,
         items: [
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+            src: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Avenida_Revoluci%C3%B3n_in_Tijuana_Mexico.JPG',
+            key: 0
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+            src: 'https://www.mexicodesconocido.com.mx/assets/images/destinos/tijuana/atractivos/BC_TIJUANA-BURRO-ZEBRA_MG_7962_FEmd.jpg',
+             key: 1
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+            src: 'https://www.hotelcaesars.com.mx/wp-content/uploads/2016/07/HotelCaesars_revolucion.jpg',
+             key: 2
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            src: 'https://theguiltycode.com/wp-content/uploads/2018/07/bflesh-plaza-santa-cecilia.jpg',
+             key: 3
           },
         ],
           markers: [{
@@ -177,9 +213,32 @@ export default {
 
 <style scoped>
 
+  .img-wrapper-carrusel {
+    position: relative;
+    z-index: 999;
+    padding: 0px;
+  }
+
+ .img {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    padding-top: 0px;
+    z-index: 1;
+    opacity: 0.3;
+    top: 0px;
+    filter: grayscale(100%);
+}
+
 .flags-wrapper {
   width: max-content;
   margin-left: auto;
+  position: relative;
+  z-index: 9999;
+  margin-top: 25px;
 }
 
 .flags {
@@ -195,11 +254,12 @@ export default {
 .map-wrapper {
   height: 65%;
   position: relative;
+  z-index: 9999;
 }
 
 .container-map {
-  height: calc(100vh - 56px);
-  overflow: auto;
+  height: calc(100vh - 98px);
+  padding: 0px;
 }
 
 .mapStyle {

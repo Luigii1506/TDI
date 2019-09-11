@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="container-padding-bottom">
     <!--
     <div class="single-post-page">
       <section class="post">
@@ -20,6 +20,11 @@
     <div class="title-wrapper"> 
       <p class="title">{{postItems[id].title}}</p>
       <p class="subtitle">{{postItems[id].subtitle}}</p>
+    </div>
+    <div class="flags-wrapper">
+        <img src="~/assets/flag-america.png" @click="americaFlag" nuxt class="flags">
+        <img src="~/assets/china.png" @click="chinaFlag" nuxt class="flags"/>
+        <img src="~/assets/mexico.png" @click="mexicoFlag" nuxt class="flags"/>
     </div>
    <v-carousel hide-delimiters>
       <v-carousel-item
@@ -296,12 +301,44 @@ export default {
     return {
       id: context.params.id
     }
+  },
+  methods: {
+      americaFlag() {
+      this.dialog = false;
+      this.$router.push(this.switchLocalePath('en'));
+    },
+    mexicoFlag() {
+      this.dialog = false;
+      this.$router.push(this.switchLocalePath('es'));
+    },
+    chinaFlag() {
+      this.dialog = false;
+      this.$router.push(this.switchLocalePath('ch'));
+    }
   }
 };
 </script>
 
 
 <style scoped>
+
+.flags-wrapper {
+  width: max-content;
+  margin-left: auto;
+  position: relative;
+  z-index: 9999;
+  margin-top: 25px;
+}
+
+.flags {
+  width: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.container-padding-bottom {
+  padding-bottom: 60px;
+}
 
 .info-wrapper {
   margin-top: 30px;

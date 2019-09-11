@@ -1,5 +1,5 @@
 <template>
-  <v-layout row wrap>
+  <v-layout row wrap class="layout-padding-bottom">
     <!--
     <v-flex xs12 md8>
       <GmapMap class="map" :center="maplocation" :zoom="7" map-type-id="terrain">
@@ -57,6 +57,10 @@
 </script>
 
 <style scoped>
+
+.layout-padding-bottom {
+  padding-bottom: 60px;
+}
   .posts-page {
     display: flex;
     justify-content: center;

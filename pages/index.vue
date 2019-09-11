@@ -181,7 +181,8 @@ export default {
     z-index: 1;
     opacity: 0.3;
     top: 0px;
-  }
+    filter: grayscale(100%);
+}
 
 .tdi {
   width: 250px;

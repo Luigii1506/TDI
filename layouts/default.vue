@@ -46,7 +46,7 @@
     --> 
 
     <v-content class="v-content">
-      <v-container style="padding: 0px; max-width: 100%;">
+      <v-container class="v-cont">
         <nuxt />
       </v-container>
     </v-content>
@@ -56,6 +56,7 @@
       :value="true"
       fixed
       color="white"
+      class="nav-bar"
     >
       <v-btn
         color="teal"
@@ -170,6 +171,11 @@ export default {
 </script>
 
 <style >
+
+.nav-bar {
+  z-index: 9999999 !important;
+}
+
 .app {
   background-color: red !important;
   background: red !important;
@@ -192,7 +198,7 @@ export default {
 }
 
 .v-content {
-  padding-bottom: 56px !important;
+  padding-bottom: 0px !important;
   background-image: linear-gradient(to bottom, #004d8a, #005a90, #006693, #007193, #007c93);
 }
 
@@ -200,4 +206,13 @@ export default {
   margin-left: 30px;
   margin-right: 30px;
 }
+
+ .v-cont {
+      padding-bottom: 0px !important;
+      padding-left: 0px;
+      padding-top: 0px;
+      padding-right: 0px;
+      max-width: 100%;
+      overflow: auto;
+  }
 </style>

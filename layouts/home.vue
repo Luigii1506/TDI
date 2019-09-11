@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-content class="v-content">
-      <v-container style="padding: 0px; max-width: 100%;">
+      <v-container >
         <nuxt />
       </v-container>
     </v-content>   
@@ -16,6 +16,7 @@ export default {
 <style>
     .v-content {
         background-image: linear-gradient(to bottom, #004d8a, #005a90, #006693, #007193, #007c93);
+        padding-bottom: 0px !important;
         overflow: auto;
     }
 
@@ -23,4 +24,5 @@ export default {
       overflow: auto;
       position: unset;
     }
+
 </style>
