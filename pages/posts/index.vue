@@ -59,7 +59,7 @@
 <style scoped>
 
 .layout-padding-bottom {
-  padding-bottom: 60px;
+  padding-bottom: 30px;
 }
   .posts-page {
     display: flex;

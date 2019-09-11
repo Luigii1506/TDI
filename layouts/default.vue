@@ -208,7 +208,7 @@ export default {
 }
 
  .v-cont {
-      padding-bottom: 0px !important;
+      padding-bottom: 28px !important;
       padding-left: 0px;
       padding-top: 0px;
       padding-right: 0px;
