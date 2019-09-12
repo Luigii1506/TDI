@@ -36,7 +36,7 @@
     </v-carousel>
     <div class="phone-wrapper">
       <v-icon class="iconbottom">place</v-icon>
-       <a :href="postItems[id].phone" style="text-decoration: none;">  
+       <a :href="postItems[id].phone" style="text-decoration: none;" v-if="postItems[id].phone !== ''">  
          <v-icon class="iconbottom">phone</v-icon>
         </a>
     </div>
@@ -47,8 +47,15 @@
         {{ $t('lugaresInfo[' + id + ']') }}
       </p>
     </div>
-    <hr class="hr-large"/>
     <p class="d-text">Horario</p>
+    <hr class="hr-large"/>
+    <p class="dia" style="margin-top:15px;"><span>Lunes:</span><span class="hora">{{postItems[id].horarios[0]}}</span></p>
+    <p class="dia"><span>Martes:</span><span class="hora">{{postItems[id].horarios[1]}}</span></p>
+    <p class="dia"><span>Miercoles:</span><span class="hora">{{postItems[id].horarios[2]}}</span></p>
+    <p class="dia"><span>Jueves:</span><span class="hora">{{postItems[id].horarios[3]}}</span></p>
+    <p class="dia"><span>Viernes:</span><span class="hora">{{postItems[id].horarios[4]}}</span></p>
+    <p class="dia"><span>Sabado:</span><span class="hora">{{postItems[id].horarios[5]}}</span></p>
+    <p class="dia"><span>Domingo:</span><span class="hora">{{postItems[id].horarios[6]}}</span></p>
   </v-container>
 </template>
 
@@ -77,7 +84,8 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240',
+            phone: '',
+            horarios: ['24 horas','24 horas','24 horas','24 horas','24 horas','24 horas','24 horas']
           },
           {
             title: 'MERCADO DE ARTESANIAS',
@@ -97,7 +105,8 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240'
+            phone: 'tel:664-351-1022',
+            horarios: ['9:00 - 17:00','9:00 - 17:00','9:00 - 17:00','9:00 - 17:00','9:00 - 17:00','9:00 - 17:00','Cerrado']
           },
           {
             title: 'MUSEO DE CERA',
@@ -117,7 +126,8 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240'
+            phone: 'tel:664-688-2478',
+            horarios: ['10:00 - 18:00','10:00 - 18:00','10:00 - 18:00','10:00 - 18:00','10:00 - 18:00','10:00 - 18:00','10:00 - 18:00']
           },
           {
             title: 'MERCADO DE FLORES',
@@ -157,7 +167,8 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240'
+            phone: 'tel:664-170-1545',
+            horarios: ['24 horas','24 horas','24 horas','24 horas','24 horas','24 horas','24 horas']
           },
           {
             title: 'INSTITUTO MUNICIPAL DE ARTE Y CULTURA',
@@ -177,10 +188,11 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240'
+            phone: 'tel:664-688-1721',
+            horarios: ['9:00 - 19:00','9:00 - 19:00','9:00 - 19:00','9:00 - 19:00','9:00 - 19:00','10:00 - 18:00','10:00 - 18:00']
           },
           {
-            title: 'MERCADO TRADICIONES MEXICANAS "EL POP"',
+            title: 'MERCADO TRADICIONES MEXICANAS "EL POPO"',
             subtitle: "Crafts & Farmers Market",
             items: [
               {
@@ -197,7 +209,8 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240'
+            phone: 'tel:664-625-1240',
+            horarios: ['8:00 - 20:30','8:00 - 20:30','8:00 - 20:30','8:00 - 20:30','8:00 - 20:30','8:00 - 20:30','8:00 - 20:30']
           },
           {
             title: 'CATEDRAL',
@@ -217,7 +230,8 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240'
+            phone: 'tel:664-685-3026',
+            horarios: ['7:00 - 21:00', '7:00 - 21:00', '7:00 - 21:00', '7:00 - 21:00', '7:00 - 21:00', '7:00 - 21:00', '7:00 - 21:00']
           },
           {
             title: 'MERCADO MUNICIPAL',
@@ -237,7 +251,8 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240'
+            phone: '',
+            horarios: ['8:00 - 18:00', '8:00 - 18:00', '8:00 - 18:00', '8:00 - 18:00', '8:00 - 18:00', '8:00 - 18:00', '8:00 - 18:00']
           },
           {
             title: 'JAI-ALAI',
@@ -257,7 +272,8 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240'
+            phone: 'tel:664-685-7073',
+            horarios: ['10:00 - 23:30', '10:00 - 18:00','10:00 - 18:00','10:00 - 18:00','10:00 - 18:00', '10:00 - 23:30', '10:00 - 23:30']
           },
           {
             title: 'PARQUE "LA OCHO"',
@@ -277,7 +293,8 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240'
+            phone: 'tel:664-307-0706',
+            horarios: ['24 horas','24 horas','24 horas','24 horas','24 horas','24 horas','24 horas']
           },
           {
             title: 'AVE. REVOLUCION',
@@ -297,7 +314,8 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240'
+            phone: 'tel:664-625-1240',
+            horarios: ['24 horas','24 horas','24 horas','24 horas','24 horas','24 horas','24 horas']
           },
           {
             title: 'CALLE 6A',
@@ -317,7 +335,8 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240'
+            phone: '',
+            horarios: ['24 horas','24 horas','24 horas','24 horas','24 horas','24 horas','24 horas']
           }
         ]
       }
@@ -355,6 +374,21 @@ export default {
 
 
 <style scoped>
+
+.hora {
+  font-size: 20px;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.dia {
+  font-size: 25px;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
 
 .d-text {
   font-size: 35px;
