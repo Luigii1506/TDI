@@ -42,36 +42,68 @@
     </div>
     <div class="map-wrapper">
       <GmapMap 
-        class="map mapStyle" 
+        class="map mapStyle"
+        ref="mapRef" 
         :center="maplocation" 
         :zoom="15" 
         :options="{
           fullscreenControl: false,
-          draggable: false,
-          scaleControl: false,
+          draggable: true,
+          scaleControl: true,
           streetViewControl: false,
           disableDefaultUi: true,
           zoomControl: false,
           mapTypeControl: false,
           mapTypeId: 'roadmap',
           styles: styleMaps,
-          scrollwheel: false
+          scrollwheel: false,
+          restriction: {
+            latLngBounds: {
+              east: 31,
+              north:  32.5645235352345,
+              south: -117.04411598153683,
+              west: -117.1
+            },
+            strictBounds: false
+          }
         }"
         map-type-id="terrain">
-        <GmapMarker :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true" :draggable="true" @click="center=m.position" />
+        <GmapInfoWindow :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false" />
+        <GmapMarker :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true" :draggable="false" @click="toogleWindow(m, index)"  :icon="m.markerOptions"/>
       </GmapMap>
     </div>
   </v-container>
 </template>
 
+<!--
+restriction: {
+            latLngBounds: {
+              east: 32.539681437115505,
+              north:  32.52630006450785,
+              south: -117.04411598153683,
+              west: -117.0293960184631
+            },
+            strictBounds: true
+          }
+    -->
+
 <script>
 import AdminPostForm from '@/components/Admin/AdminPostForm.vue'
-
 export default {
    data () {
       return {
+        infoWindowPos: null,
+        infoWinOpen: false,
+        infoOptions: {
+          content: '',
+          pixelOffset: {
+              width: 0,
+              height: -35
+            }
+        },
         bandera: '',
         dialog: true,
+        currentMidx: null,
         items: [
           {
             src: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Avenida_Revoluci%C3%B3n_in_Tijuana_Mexico.JPG',
@@ -94,61 +126,120 @@ export default {
             position: { // Mercado de artesanias
               lng: -117.033218,
               lat: 32.536288
-            }
+            },
+            markerOptions: {
+              url: require('~/assets/2.png'),
+              size: {width: 30, height: 45, f: 'px', b: 'px',},
+              scaledSize: {width: 30, height: 45, f: 'px', b: 'px',},
+            },
+            infoText: '<strong>Mercado de artesanias</strong>'
           },
           {
             position: { // Santa cecilia
               lng: -117.037617,
               lat: 32.536226
-            }
+            },
+            markerOptions: {
+              url: require('~/assets/5.png'),
+              size: {width: 30, height: 45, f: 'px', b: 'px',},
+              scaledSize: {width: 30, height: 45, f: 'px', b: 'px',},
+            },
+            infoText: '<strong>Plaza Santa cecilia</strong>'
           },
           {
             position: { // Museo de cera
               lng: -117.035595,
               lat: 32.537008
-            }
+            },
+            markerOptions: {
+            url: require('~/assets/3.png'),
+            size: {width: 30, height: 45, f: 'px', b: 'px',},
+            scaledSize: {width: 30, height: 45, f: 'px', b: 'px',},
+          },
+            infoText: '<strong>Museo de cera</strong>'
           },
           {
             position: { // Instituto municipal de arte y cultura
               lng: -117.038977,
               lat: 32.534987
-            }
+            },
+            markerOptions: {
+              url: require('~/assets/6.png'),
+            size: {width: 30, height: 45, f: 'px', b: 'px',},
+              scaledSize: {width: 30, height: 45, f: 'px', b: 'px',},
+            },
+              infoText: '<strong>Instituto municipal de arte y cultura</strong>'
           },
           {
             position: { // Mercado el popo
               lng: -117.039575,
               lat: 32.535159
-            }
+            },
+            markerOptions: {
+              url: require('~/assets/7.png'),
+            size: {width: 30, height: 45, f: 'px', b: 'px',},
+              scaledSize: {width: 30, height: 45, f: 'px', b: 'px',},
+            },
+              infoText: '<strong>Mercado "el popo"</strong>'
           },
           {
             position: { // Catedral
               lng: -117.040373,
               lat: 32.535369
-            }
+            },
+            markerOptions: {
+              url: require('~/assets/8.png'),
+            size: {width: 30, height: 45, f: 'px', b: 'px',},
+              scaledSize: {width: 30, height: 45, f: 'px', b: 'px',},
+            },
+              infoText: '<strong>Catedral</strong>'
           },
           {
             position: { // Mercado Municipal
               lng: -117.040412,
               lat: 32.536199
-            }
+            },
+            markerOptions: {
+              url: require('~/assets/9.png'),
+              size: {width: 30, height: 45, f: 'px', b: 'px',},
+              scaledSize: {width: 30, height: 45, f: 'px', b: 'px',},
+            },
+              infoText: '<strong>Mercado municipal</strong>'
           },
           {
             position: { // Jai-alai 
               lng: -117.035596,
               lat: 32.528720
-            }
+            },
+            markerOptions: {
+              url: require('~/assets/10.png'),
+              size: {width: 30, height: 45, f: 'px', b: 'px',},
+              scaledSize: {width: 30, height: 45, f: 'px', b: 'px',},
+            },
+              infoText: '<strong>Jai-alai</strong>'
           },
           {
             position: { // Parque la ocho 
               lng: -117.037465,
               lat: 32.527876
-            }
+            },markerOptions: {
+                url: require('~/assets/11.png'),
+                size: {width: 30, height: 45, f: 'px', b: 'px',},
+                scaledSize: {width: 30, height: 45, f: 'px', b: 'px',},
+              },
+                infoText: '<strong>Parque la ocho</strong>'
           },
           {
             position: { // Av revolucion
               lng: -117.036563,
               lat: 32.532045
-            }
+            },
+            markerOptions: {
+              url: require('~/assets/a.png'),
+              size: {width: 30, height: 45, f: 'px', b: 'px',},
+              scaledSize: {width: 30, height: 45, f: 'px', b: 'px',},
+            },
+              infoText: '<strong>Av. revolucion</strong>'
           }
           
           
@@ -201,6 +292,19 @@ export default {
     chinaFlag() {
       this.dialog = false;
       this.$router.push(this.localePath('home', 'ch'));
+    },
+    toogleWindow(marker, idx) {
+      this.infoWindowPos = marker.position;
+      this.infoOptions.content = marker.infoText;
+
+      if (this.currentMidx == idx) {
+        this.infoWinOpen = !this.infoWinOpen;
+      } else {
+              this.infoWinOpen = true;
+              this.currentMidx = idx;
+      }
+
+      console.log('Se presiono marcador');
     }
   },
   created() {
@@ -217,6 +321,11 @@ export default {
     } else {
       this.bandera = 'US'
     }
+
+    this.$refs.mapRef.$mapPromise.then((map) => {
+      console.log('Bounds',map.getBounds())
+      //map.panTo({lat: 1.38, lng: 103.80})
+    })
   }
 }
 </script>
