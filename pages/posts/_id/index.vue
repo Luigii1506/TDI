@@ -178,17 +178,9 @@ export default {
             subtitle: "Arts & Culture Institute",
             items: [
               {
-                src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+                src: 'http://www.imac.tijuana.gob.mx/muhti/galeria/26.jpg',
               },
-              {
-                src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-              },
-              {
-                src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-              },
-              {
-                src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-              },
+              
             ],
             info: "",
             phone: 'tel:664-688-1721',

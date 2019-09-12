@@ -5,36 +5,12 @@
         <img width="200" src="~/assets/TDI.png" class="center-h center-v"/>
     </div>
     -->
-    <v-container grid-list-sm fluid class="img-wrapper-carrusel">
-      <v-layout row wrap>
-        <v-flex
-          v-for="n in items"
-          :key="n.key"
-          xs6
-          d-flex
-        >
-          <v-card flat tile class="d-flex">
-            <v-img
-              :src="n.src"
-              aspect-ratio="1"
-              class="grey lighten-2"
-            >
-              <template v-slot:placeholder>
-                <v-layout
-                  fill-height
-                  align-center
-                  justify-center
-                  ma-0
-                >
-                  <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-                </v-layout>
-              </template>
-            </v-img>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-container>
-    <img src="~assets/plazaSantaCeciloa.jpg" class="img"> 
+    <img src="~assets/plazaSantaCeciloa.jpg" class="img">
+    <div style="z-index: 99999; position: relative; padding-top: 30px;">
+      <hr class="hr-small" style="width: 70% important!"/>
+      <p class="d-text" style="text-align: center;">Sitios turisticos</p>
+      <hr class="hr-small" style="width: 70% important!"/>
+    </div> 
     <div class="flags-wrapper">
         <img src="~/assets/flag-america.png" @click="americaFlag" nuxt v-bind:class="{ 'active': 'US' == bandera ? true : false, 'flags': true }"/>
         <img src="~/assets/china.png" @click="chinaFlag" nuxt v-bind:class="{ 'active': 'CH' == bandera ? true : false, 'flags': true }" />
@@ -72,6 +48,42 @@
         <GmapMarker :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true" :draggable="false" @click="toogleWindow(m, index)"  :icon="m.markerOptions"/>
       </GmapMap>
     </div>
+    <div style="z-index: 99999; position: relative;">
+      <hr class="hr-small" />
+      <p class="d-text" style="text-align: center;">Fotos</p>
+      <hr class="hr-small"/>
+    </div>
+    
+    <v-container grid-list-sm fluid class="img-wrapper-carrusel">
+      <v-layout row wrap>
+        <v-flex
+          v-for="n in items"
+          :key="n.key"
+          xs6
+          d-flex
+          class="no-padding"
+        >
+          <v-card flat tile class="d-flex">
+            <v-img
+              :src="n.src"
+              aspect-ratio="1"
+              class="grey lighten-2"
+            >
+              <template v-slot:placeholder>
+                <v-layout
+                  fill-height
+                  align-center
+                  justify-center
+                  ma-0
+                >
+                  <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                </v-layout>
+              </template>
+            </v-img>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </v-container>
 </template>
 
@@ -332,6 +344,33 @@ export default {
 
 <style scoped>
 
+.no-padding {
+  padding: 0px !important;
+}
+
+.d-text {
+  font-size: 35px;
+  color: goldenrod;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+
+.hr-small {
+  border:0;
+  margin: auto;
+  width: 50%;
+  height: 4px;
+  background:goldenrod;
+}
+
+.hr-large {
+  border:0;
+  margin:0;
+  width:100%;
+  height: 3px;
+  background:goldenrod;
+}
+
   .active {
       color: #ddd;
       font-size: 1.2em;
@@ -342,6 +381,7 @@ export default {
     position: relative;
     z-index: 999;
     padding: 0px;
+    margin-top: 25px;
   }
 
  .img {
@@ -381,6 +421,7 @@ export default {
   height: 65%;
   position: relative;
   z-index: 9999;
+  margin-bottom: 25px;
 }
 
 .container-map {
