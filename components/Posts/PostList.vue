@@ -71,7 +71,7 @@ export default {
             id: 0,
             numberClas: "black white--text number-wrapper",
             number: 1,
-            icon: '',
+            icon: 'palette',
             iconClass: 'white--text'
           },
           { divider: true, inset: true },
@@ -94,7 +94,7 @@ export default {
             id: 2,
             numberClas: "red white--text number-wrapper",
             number: 3,
-            icon: 'bank',
+            icon: 'museum',
             iconClass: 'white--text'
 
           },
@@ -117,7 +117,7 @@ export default {
             id: 4,
             numberClas: "green white--text number-wrapper",
             number:5,
-            icon: '',
+            icon: 'business',
             iconClass: 'white--text'
           },
           { divider: true, inset: true },
@@ -128,7 +128,7 @@ export default {
             id: 5,
             numberClas: "red white--text number-wrapper",
             number: 6,
-            icon: 'bank',
+            icon: 'business',
             iconClass: 'white--text'
           },
           { divider: true, inset: true },
@@ -151,7 +151,7 @@ export default {
             id: 7,
             numberClas: "red white--text number-wrapper",
             number: 8,
-            icon: '',
+            icon: 'location_city',
             iconClass: 'white--text'
           },
           { divider: true, inset: true },
@@ -173,7 +173,7 @@ export default {
             id: 9,
             numberClas: "red white--text number-wrapper",
             number: 10,
-            icon: '',
+            icon: 'sports_handball',
             iconClass: 'white--text'
           },
           { divider: true, inset: true },

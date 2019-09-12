@@ -11,11 +11,15 @@
       <p class="d-text" style="text-align: center;">{{ $t('sitios') }}</p>
       <hr class="hr-small" style="width: 70% important!"/>
     </div> 
-    <div class="flags-wrapper">
+    <div style="margin-top: 25px; margin-bottom: 15px;">
+      <img src="~/assets/TDI.png" class="tdi-logo"/>
+      <div class="flags-wrapper">
         <img src="~/assets/flag-america.png" @click="americaFlag" nuxt v-bind:class="{ 'active': 'US' == bandera ? true : false, 'flags': true }"/>
         <img src="~/assets/china.png" @click="chinaFlag" nuxt v-bind:class="{ 'active': 'CH' == bandera ? true : false, 'flags': true }" />
         <img src="~/assets/mexico.png" @click="mexicoFlag" nuxt v-bind:class="{ 'active': 'MX' == bandera ? true : false, 'flags': true }"/>
     </div>
+    </div>
+    
     <div class="map-wrapper">
       <GmapMap 
         class="map mapStyle"
@@ -344,6 +348,12 @@ export default {
 
 <style scoped>
 
+.tdi-logo {
+  width: 90px;
+  position: relative;
+  z-index: 99999;
+}
+
 .no-padding {
   padding: 0px !important;
 }
@@ -403,8 +413,8 @@ export default {
   margin-left: auto;
   position: relative;
   z-index: 9999;
-  margin-top: 25px;
-  margin-bottom: 8px;
+  display: inline;
+  float: right;
 }
 
 .flags {
