@@ -40,6 +40,7 @@
          <v-icon class="iconbottom">phone</v-icon>
         </a>
     </div>
+      <p class="d-text">Nosotros</p>
     <hr class="hr-large"/>
     <div class="info-wrapper">
       <p class="info-text">
@@ -47,6 +48,7 @@
       </p>
     </div>
     <hr class="hr-large"/>
+    <p class="d-text">Horario</p>
   </v-container>
 </template>
 
@@ -354,6 +356,13 @@ export default {
 
 <style scoped>
 
+.d-text {
+  font-size: 35px;
+  color: goldenrod;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+
 .active {
     color: #ddd;
     font-size: 1.2em;
@@ -404,7 +413,6 @@ export default {
   margin-left: auto;
   position: relative;
   z-index: 9999;
-  margin-bottom: 12px;
   margin-top: 15px;
 }
 
