@@ -23,9 +23,9 @@
     </div>
     <hr class="hr-small"/>
     <div class="flags-wrapper">
-        <img src="~/assets/flag-america.png" @click="americaFlag" nuxt class="flags">
-        <img src="~/assets/china.png" @click="chinaFlag" nuxt class="flags"/>
-        <img src="~/assets/mexico.png" @click="mexicoFlag" nuxt class="flags"/>
+        <img src="~/assets/flag-america.png" @click="americaFlag" nuxt v-bind:class="{ 'active': 'US' == bandera ? true : false, 'flags': true }"/>
+        <img src="~/assets/china.png" @click="chinaFlag" nuxt v-bind:class="{ 'active': 'CH' == bandera ? true : false, 'flags': true }" />
+        <img src="~/assets/mexico.png" @click="mexicoFlag" nuxt v-bind:class="{ 'active': 'MX' == bandera ? true : false, 'flags': true }"/>
     </div>
    <v-carousel hide-delimiters class="carrusel">
       <v-carousel-item
@@ -55,6 +55,7 @@
 export default {
     data () {
       return {
+        bandera: '',
         postItems: [
           {
             title: 'PEDWEST',
@@ -337,12 +338,27 @@ export default {
       this.dialog = false;
       this.$router.push(this.switchLocalePath('ch'));
     }
+  },
+  mounted() {
+    if(this.$route.path.includes('ch')) {
+      this.bandera = 'CH'
+    } else if(this.$route.path.includes('es')) {
+      this.bandera = 'MX'
+    } else {
+      this.bandera = 'US'
+    }
   }
 };
 </script>
 
 
 <style scoped>
+
+.active {
+    color: #ddd;
+    font-size: 1.2em;
+    box-shadow: 0 0 40px white;
+}
 
 .iconbottom {
     color: white;
@@ -379,6 +395,7 @@ export default {
   margin-left: auto;
   position: relative;
   z-index: 9999;
+  margin-bottom: 8px;
   margin-top: 25px;
 }
 
@@ -398,8 +415,8 @@ export default {
 }
 
 .container-padding-bottom {
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 15px;
+  padding-right: 15px;
   padding-top: 0;
   padding-bottom: 60px;
 }

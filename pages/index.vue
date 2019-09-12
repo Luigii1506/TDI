@@ -8,15 +8,15 @@
     </v-layout>
     <v-layout row wrap class="layout-relative" style="margin-top: 20px;">
       <v-flex xs12 sm4>
-        <img src="~/assets/flag-america.png" @click="americaFlag" nuxt class="flags">
+        <img src="~/assets/flag-america.png" @click="americaFlag" nuxt class="flags" style="margin-bottom: 5px;">
         <p class="welcome-text">Welcome</p>
       </v-flex>
       <v-flex xs12 sm4>
-        <img src="~/assets/china.png" @click="chinaFlag" nuxt class="flags"/>
+        <img src="~/assets/china.png" @click="chinaFlag" nuxt class="flags" style="margin-bottom: 5px; margin-top: 20px;"/>
         <p class="welcome-text">欢迎</p>
       </v-flex>
       <v-flex xs12 sm4 style="padding-bottom: 20px;">
-        <img src="~/assets/mexico.png" @click="mexicoFlag" nuxt class="flags"/>
+        <img src="~/assets/mexico.png" @click="mexicoFlag" nuxt class="flags" style="margin-bottom: 5px; margin-top: 20px;"/>
         <p class="welcome-text">Bienvenido</p>
       </v-flex>
     </v-layout>

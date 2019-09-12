@@ -36,9 +36,9 @@
     </v-container>
     <img src="~assets/plazaSantaCeciloa.jpg" class="img"> 
     <div class="flags-wrapper">
-        <img src="~/assets/flag-america.png" @click="americaFlag" nuxt class="flags">
-        <img src="~/assets/china.png" @click="chinaFlag" nuxt class="flags"/>
-        <img src="~/assets/mexico.png" @click="mexicoFlag" nuxt class="flags"/>
+        <img src="~/assets/flag-america.png" @click="americaFlag" nuxt v-bind:class="{ 'active': 'US' == bandera ? true : false, 'flags': true }"/>
+        <img src="~/assets/china.png" @click="chinaFlag" nuxt v-bind:class="{ 'active': 'CH' == bandera ? true : false, 'flags': true }" />
+        <img src="~/assets/mexico.png" @click="mexicoFlag" nuxt v-bind:class="{ 'active': 'MX' == bandera ? true : false, 'flags': true }"/>
     </div>
     <div class="map-wrapper">
       <GmapMap 
@@ -70,6 +70,7 @@ import AdminPostForm from '@/components/Admin/AdminPostForm.vue'
 export default {
    data () {
       return {
+        bandera: '',
         dialog: true,
         items: [
           {
@@ -207,11 +208,26 @@ export default {
   },
   updated() {
     this.dialog = true;
+  },
+  mounted() {
+    if(this.$route.path.includes('ch')) {
+      this.bandera = 'CH'
+    } else if(this.$route.path.includes('es')) {
+      this.bandera = 'MX'
+    } else {
+      this.bandera = 'US'
+    }
   }
 }
 </script>
 
 <style scoped>
+
+  .active {
+      color: #ddd;
+      font-size: 1.2em;
+      box-shadow: 0 0 40px white;
+  }
 
   .img-wrapper-carrusel {
     position: relative;
@@ -239,6 +255,7 @@ export default {
   position: relative;
   z-index: 9999;
   margin-top: 25px;
+  margin-bottom: 8px;
 }
 
 .flags {
