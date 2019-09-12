@@ -47,15 +47,17 @@
         {{ $t('lugaresInfo[' + id + ']') }}
       </p>
     </div>
-    <p class="d-text">Horario</p>
-    <hr class="hr-large"/>
-    <p class="dia" style="margin-top:15px;"><span>Lunes:</span><span class="hora">{{postItems[id].horarios[0]}}</span></p>
-    <p class="dia"><span>Martes:</span><span class="hora">{{postItems[id].horarios[1]}}</span></p>
-    <p class="dia"><span>Miercoles:</span><span class="hora">{{postItems[id].horarios[2]}}</span></p>
-    <p class="dia"><span>Jueves:</span><span class="hora">{{postItems[id].horarios[3]}}</span></p>
-    <p class="dia"><span>Viernes:</span><span class="hora">{{postItems[id].horarios[4]}}</span></p>
-    <p class="dia"><span>Sabado:</span><span class="hora">{{postItems[id].horarios[5]}}</span></p>
-    <p class="dia"><span>Domingo:</span><span class="hora">{{postItems[id].horarios[6]}}</span></p>
+    <div v-if="postItems[id].horarios.length > 0 ? true : false">
+      <p class="d-text">Horario</p>
+      <hr class="hr-large"/>
+      <p class="dia" style="margin-top:15px;"><span>Lunes:</span><span class="hora">{{postItems[id].horarios[0]}}</span></p>
+      <p class="dia"><span>Martes:</span><span class="hora">{{postItems[id].horarios[1]}}</span></p>
+      <p class="dia"><span>Miercoles:</span><span class="hora">{{postItems[id].horarios[2]}}</span></p>
+      <p class="dia"><span>Jueves:</span><span class="hora">{{postItems[id].horarios[3]}}</span></p>
+      <p class="dia"><span>Viernes:</span><span class="hora">{{postItems[id].horarios[4]}}</span></p>
+      <p class="dia"><span>Sabado:</span><span class="hora">{{postItems[id].horarios[5]}}</span></p>
+      <p class="dia"><span>Domingo:</span><span class="hora">{{postItems[id].horarios[6]}}</span></p>
+    </div>
   </v-container>
 </template>
 
@@ -147,7 +149,8 @@ export default {
               },
             ],
             info: "",
-            phone: 'tel:664-625-1240'
+            phone: 'tel:664-625-1240',
+            horarios: []
           },
           {
             title: 'PLAZA SANTA CECILIA',
