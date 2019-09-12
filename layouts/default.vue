@@ -65,8 +65,8 @@
         @click="toHome"
         nuxt
       >
-        <span>Recent</span>
-        <v-icon>history</v-icon>
+        <span>Mapa</span>
+        <v-icon>map</v-icon>
       </v-btn>
 
       <v-btn
@@ -76,7 +76,7 @@
         @click="toPosts"
         nuxt
       >
-        <span>Favorites</span>
+        <span>Lugares</span>
         <v-icon>place</v-icon>
       </v-btn>
     </v-bottom-nav>
@@ -170,7 +170,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
 
 .nav-bar {
   z-index: 9999999 !important;
@@ -205,6 +205,14 @@ export default {
 .image-padding {
   margin-left: 30px;
   margin-right: 30px;
+}
+
+.gmnoprint {
+  display: none;
+}
+
+.gm-style-cc {
+  display: none
 }
 
  .v-cont {
