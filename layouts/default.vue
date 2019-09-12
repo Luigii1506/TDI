@@ -170,7 +170,7 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
 
 .nav-bar {
   z-index: 9999999 !important;
@@ -208,11 +208,11 @@ export default {
 }
 
  .v-cont {
-      padding-bottom: 28px !important;
       padding-left: 0px;
       padding-top: 0px;
       padding-right: 0px;
       max-width: 100%;
       overflow: auto;
+      height: calc(100vh - 56px);
   }
 </style>
