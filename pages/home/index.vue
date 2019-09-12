@@ -19,7 +19,6 @@
         <img src="~/assets/mexico.png" @click="mexicoFlag" nuxt v-bind:class="{ 'active': 'MX' == bandera ? true : false, 'flags': true }"/>
     </div>
     </div>
-    
     <div class="map-wrapper">
       <GmapMap 
         class="map mapStyle"
@@ -50,8 +49,15 @@
         map-type-id="terrain">
         <GmapInfoWindow :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false" />
         <GmapMarker :key="index" v-for="(m, index) in markers" :position="m.position" :clickable="true" :draggable="false" @click="toogleWindow(m, index)"  :icon="m.markerOptions"/>
+        <GmapMarker :position="currentLocation.position" :clickable="true" :draggable="false" @click="toogleWindow(currentLocation, 10)"/>
       </GmapMap>
     </div>
+    
+
+  <div class="phone-wrapper" @click="geolocation()">
+      <v-icon class="iconbottom">place</v-icon>
+    </div>
+
     <div style="z-index: 99999; position: relative;">
       <hr class="hr-small" />
       <p class="d-text" style="text-align: center;">{{ $t('fotos') }}</p>
@@ -260,7 +266,12 @@ export default {
           
           
         ],
-        currentLoc: {},
+        currentLocation: { 
+          position: {
+            lat : 0, lng : 0
+          },
+          infoText: '<strong>Aqui estoy</strong>'
+        },
         maplocation:{lng: -117.036756, lat:  32.532991},
         styleMaps: [
             {
@@ -321,6 +332,14 @@ export default {
       }
 
       console.log('Se presiono marcador');
+    },
+     geolocation() {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.currentLocation.position = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+      });
     }
   },
   created() {
@@ -330,6 +349,7 @@ export default {
     this.dialog = true;
   },
   mounted() {
+    this.geolocation();
     if(this.$route.path.includes('ch')) {
       this.bandera = 'CH'
     } else if(this.$route.path.includes('es')) {
@@ -347,6 +367,25 @@ export default {
 </script>
 
 <style scoped>
+
+.iconbottom {
+    color: white;
+    background-color: goldenrod;
+    font-size: 40px;
+    border-radius: 8px;
+    padding: 5px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+
+.phone-wrapper {
+  width: max-content;
+  margin-left: auto;
+  position: relative;
+  z-index: 9999;
+  margin-top: 5px;
+}
 
 .tdi-logo {
   width: 90px;
@@ -431,7 +470,6 @@ export default {
   height: 65%;
   position: relative;
   z-index: 9999;
-  margin-bottom: 25px;
 }
 
 .container-map {
