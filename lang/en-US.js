@@ -13,5 +13,16 @@ export default {
     'Built on the site of the old jail "La Ocho", this park offers all the amenities to spend a quiet and healthy time with the family, has green areas, surveillance, interactive fountains, playgrounds and a forum, also has a Representative monument of Latin America, a reguilete.',
     'While strolling through the arts and craft shops, bar-restaurants and cafes of the famous Ave. Revolucion, hop on a "zonkey" and take a black and white photo with a donkey with zebra stripes, a tourist tradition since 1903.',
     'In this tourist place the street comes alive at night when its bars become meeting places between locals and tourists, this street is attended by all kinds of people and is the ideal place for the nightlife of the city.',
-  ]
+  ],
+  lunes: 'Monday',
+  martes: 'Tuesday',
+  miercoles: 'Wednesday',
+  jueves: 'Thursday',
+  viernes: 'Friday',
+  sabado: 'Saturday',
+  domingo: 'Sunday',
+  horario: 'Schedule',
+  informacion: 'Information',
+  fotos: 'Photos',
+  sitios: 'Tourist sites'
 }

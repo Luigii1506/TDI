@@ -40,7 +40,7 @@
          <v-icon class="iconbottom">phone</v-icon>
         </a>
     </div>
-      <p class="d-text">Nosotros</p>
+      <p class="d-text">{{ $t('informacion') }}</p>
     <hr class="hr-large"/>
     <div class="info-wrapper">
       <p class="info-text">
@@ -48,15 +48,15 @@
       </p>
     </div>
     <div v-if="postItems[id].horarios.length > 0 ? true : false">
-      <p class="d-text">Horario</p>
+      <p class="d-text">{{ $t('horario') }}</p>
       <hr class="hr-large"/>
-      <p class="dia" style="margin-top:15px;"><span>Lunes:</span><span class="hora">{{postItems[id].horarios[0]}}</span></p>
-      <p class="dia"><span>Martes:</span><span class="hora">{{postItems[id].horarios[1]}}</span></p>
-      <p class="dia"><span>Miercoles:</span><span class="hora">{{postItems[id].horarios[2]}}</span></p>
-      <p class="dia"><span>Jueves:</span><span class="hora">{{postItems[id].horarios[3]}}</span></p>
-      <p class="dia"><span>Viernes:</span><span class="hora">{{postItems[id].horarios[4]}}</span></p>
-      <p class="dia"><span>Sabado:</span><span class="hora">{{postItems[id].horarios[5]}}</span></p>
-      <p class="dia"><span>Domingo:</span><span class="hora">{{postItems[id].horarios[6]}}</span></p>
+      <p class="dia" style="margin-top:15px;"><span>{{ $t('lunes') }}:</span><span class="hora">{{postItems[id].horarios[0]}}</span></p>
+      <p class="dia"><span>{{ $t('martes') }}:</span><span class="hora">{{postItems[id].horarios[1]}}</span></p>
+      <p class="dia"><span>{{ $t('miercoles') }}:</span><span class="hora">{{postItems[id].horarios[2]}}</span></p>
+      <p class="dia"><span>{{ $t('jueves') }}:</span><span class="hora">{{postItems[id].horarios[3]}}</span></p>
+      <p class="dia"><span>{{ $t('viernes') }}:</span><span class="hora">{{postItems[id].horarios[4]}}</span></p>
+      <p class="dia"><span>{{ $t('sabado') }}:</span><span class="hora">{{postItems[id].horarios[5]}}</span></p>
+      <p class="dia"><span>{{ $t('domingo') }}:</span><span class="hora">{{postItems[id].horarios[6]}}</span></p>
     </div>
   </v-container>
 </template>

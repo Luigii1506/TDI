@@ -13,5 +13,17 @@ export default {
     'Construido sobre el predio de la antigua carcel "La Ocho", este parque ofrece todas las amenidades para pasar un rato tranquilo y sano con la familia, cuenta con areas verdes, vigilancia, fuentes interactivas, juegos infantiles y un foro, ademas cuenta con un monumento representativo de América latina, un reguilete.',
     'Mientras pasea por las tiendas de artesanías, restaurantes y cafés de la famosa Ave. Revolución,  tómese una foto en blanco y negro con un "zonkey" (un burro con rayas de cebra), una tradición turistica desde 1903.',
     'En este lugar turístico la calle cobra vida durante la noche cuando sus bares se vuelven lugares de reunión entre locales y turistas, a esta calle asisten todo tipo de personas y es el lugar ideal para la vida nocturna de la ciudad.',
-  ]
+  ],
+  lunes: 'Lunes',
+  martes: 'Martes',
+  miercoles: 'Miercoles',
+  jueves: 'Jueves',
+  viernes: 'Viernes',
+  sabado: 'Sabado',
+  domingo: 'Domingo',
+  horario: 'Horario',
+  informacion: 'Información',
+  fotos: 'Fotos',
+  sitios: 'Sitios turísticos'
+
 }

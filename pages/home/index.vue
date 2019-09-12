@@ -8,7 +8,7 @@
     <img src="~assets/plazaSantaCeciloa.jpg" class="img">
     <div style="z-index: 99999; position: relative; padding-top: 30px;">
       <hr class="hr-small" style="width: 70% important!"/>
-      <p class="d-text" style="text-align: center;">Sitios turisticos</p>
+      <p class="d-text" style="text-align: center;">{{ $t('sitios') }}</p>
       <hr class="hr-small" style="width: 70% important!"/>
     </div> 
     <div class="flags-wrapper">
@@ -50,7 +50,7 @@
     </div>
     <div style="z-index: 99999; position: relative;">
       <hr class="hr-small" />
-      <p class="d-text" style="text-align: center;">Fotos</p>
+      <p class="d-text" style="text-align: center;">{{ $t('fotos') }}</p>
       <hr class="hr-small"/>
     </div>
     
