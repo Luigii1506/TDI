@@ -15,7 +15,7 @@ export default {
 
 <style>
     .v-content {
-        background-image: linear-gradient(to bottom, #004d8a, #005a90, #006693, #007193, #007c93);
+        background-image: linear-gradient(to bottom, #8d272e, #952c34, #9c3239, #a4373f, #ac3c45);
         padding-bottom: 0px !important;
         overflow: auto;
     }
